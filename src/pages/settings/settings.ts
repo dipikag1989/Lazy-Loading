@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController,AlertController } from 'ionic-angular';
+import { NavController,AlertController,IonicPage} from 'ionic-angular';
 
 import { RedditsPage } from '../reddits/reddits';
 
+
+@IonicPage()
 @Component({
   selector: 'settings',
   templateUrl: 'settings.html'

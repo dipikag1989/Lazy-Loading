@@ -1,8 +1,17 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,IonicPage } from 'ionic-angular';
 import { RedditService } from '../../app/services/reddits.service';
-import { DeatilsPage } from '../details/details';
-import { trigger ,state,style,transition,animate} from '@angular/animations';
+// import { DeatilsPage } from '../details/details';
+import { trigger ,state,style} from '@angular/animations';
+
+
+// @IonicPage(
+//   {
+//   name: "DetailsPage",
+//   segment: "app"
+// })
+@IonicPage()
+
 @Component({
   selector: 'reddits',
   templateUrl: 'reddits.html',
@@ -13,8 +22,7 @@ import { trigger ,state,style,transition,animate} from '@angular/animations';
       })),
       state('invisible',style({
         opacity:0
-      })),
-      transition('* => *',animate('500ms ease-in'))
+      }))
     ])
   ]
 })
@@ -51,14 +59,15 @@ export class RedditsPage {
 	  	
 	 }
   view(item){
-  	this.navCtrl.push(DeatilsPage,{
+  	this.navCtrl.push('DetailsPage',{
   		item:item
   	});
+    
   }
   changeCat(){
   	this.getPosts(this.categary,this.limit);
   }
-  toggal(){
+  toggle(){
     this.visibleState =(this.visibleState == 'visible') ? 'invisible' : 'visible'
   }
 
